@@ -1,0 +1,10 @@
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+    background-color: rgba(#000, 0.6);
+    opacity: 1;
+}
+
+main {
+    position: relative;
+    min-height: 90vh;
+    padding: 2rem;
+}
