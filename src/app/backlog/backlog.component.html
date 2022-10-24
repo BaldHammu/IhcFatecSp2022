@@ -1,0 +1,42 @@
+<div class="container max">
+    <mat-card fxLayout="row wrap" class="maximum mb-4">
+        <mat-form-field appearance="fill">
+            <mat-label>Input</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Select</mat-label>
+            <mat-select>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Textarea</mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="accent">
+            <mat-icon>search</mat-icon>Filtrar
+        </button>
+    </mat-card>
+    <mat-card fxLayout="column" class="maximum" fxLayoutGap="15px">
+        <mat-card fxLayout="row" class="maximum backlog" fxLayoutGap="10px">
+            <h3>Planejando</h3>
+            <mat-card>
+                <h4>Texto</h4>
+                <p>
+                    texto
+                </p>
+            </mat-card>
+        </mat-card>
+        <mat-card fxLayout="row" class="maximum backlog">
+            <h3>Selecionado</h3>
+        </mat-card>
+        <mat-card fxLayout="row" class="maximum backlog">
+            <h3>Executando</h3>
+        </mat-card>
+        <mat-card fxLayout="row" class="maximum backlog">
+            <h3>Entregue</h3>
+        </mat-card>
+    </mat-card>
+</div>

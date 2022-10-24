@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header/header.component';
 import { SharedModule } from '../shared/material-module/shared-module.module';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { RegisterComponent } from '../register/register.component';
+import { BacklogComponent } from '../backlog/backlog.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { RegisterComponent } from '../register/register.component';
     LoginComponent,
     HeaderComponent,
     SidenavComponent,
-    RegisterComponent
+    RegisterComponent,
+    BacklogComponent
   ],
   imports: [
     CommonModule,
