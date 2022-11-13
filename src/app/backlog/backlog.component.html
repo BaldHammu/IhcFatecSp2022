@@ -1,6 +1,14 @@
 <div class="container max">
-    <mat-card fxLayout="row wrap" class="maximum mb-4">
-        <mat-form-field appearance="fill">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle class="maximum mb-4">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                Filtros
+            </mat-panel-title>
+            <mat-panel-description>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field appearance="fill">
             <mat-label>Input</mat-label>
             <input matInput>
         </mat-form-field>
@@ -15,10 +23,11 @@
             <mat-label>Textarea</mat-label>
             <textarea matInput></textarea>
         </mat-form-field>
-        <button mat-raised-button color="accent">
+        <button mat-raised-button color="accent" (click)="openDialog()">
             <mat-icon>search</mat-icon>Filtrar
-        </button>
-    </mat-card>
+        </button> 
+        </mat-expansion-panel>
+      </mat-accordion>
     <mat-card fxLayout="column" class="maximum" fxLayoutGap="15px">
         <mat-card fxLayout="row" class="maximum backlog" fxLayoutGap="10px">
             <h3>Planejando</h3>

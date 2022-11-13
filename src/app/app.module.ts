@@ -11,10 +11,16 @@ import { SharedModule } from './shared/material-module/shared-module.module';
 import { provideFirebaseApp,  initializeApp } from '@angular/fire/app';
 import { environment } from 'src/environments/environment';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { DialogCardInfoComponent } from './dialog-card-info/dialog-card-info.component';
+import { DialogCardGraphComponent } from './dialog-card-graph/dialog-card-graph.component';
+import { ParametrosProjetoComponent } from './parametros-projeto/parametros-projeto.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DialogCardInfoComponent,
+    DialogCardGraphComponent,
+    ParametrosProjetoComponent
   ],
   imports: [
     BrowserModule,
