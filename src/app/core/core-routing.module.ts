@@ -5,13 +5,15 @@ import { LoginComponent } from '../login/login/login.component'
 import { ParametrosProjetoComponent } from '../parametros-projeto/parametros-projeto.component'
 import { RegisterComponent } from '../register/register.component'
 import { CoreComponent } from './core.component'
+import { EditPessoasComponent } from '../objetos/pessoas/edit-pessoas/edit-pessoas.component'
 
 const routes:Routes =[
     {path:'', component:CoreComponent, children:[
         {path:'login', component:LoginComponent},
         {path:'registrar-se', component:RegisterComponent},
         {path:'backlog', component:BacklogComponent},
-        {path:'parametros', component:ParametrosProjetoComponent}]}
+        {path:'parametros', component:ParametrosProjetoComponent},
+        {path:'pessoas', component:EditPessoasComponent}]}
 ]
 @NgModule({
     imports:[RouterModule.forChild(routes)],
