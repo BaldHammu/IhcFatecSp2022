@@ -1,4 +1,15 @@
-<app-header></app-header>
-<main>
-    <router-outlet class="hidden-router"></router-outlet>
-</main>
+<app-header (menu)="openDrawer()"></app-header>
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" [opened]="openClose">
+        <li fxLayout="column">
+            <a (click)="clickLink('login')"><mat-icon>home</mat-icon>Login</a>
+            <a (click)="clickLink('backlog')"><mat-icon>layers</mat-icon>Backlog</a>
+            <a (click)="clickLink('parametros')"><mat-icon>create</mat-icon>Parametros</a>
+        </li>
+    </mat-drawer>
+    <mat-drawer-content>
+        <main>
+            <router-outlet class="hidden-router"></router-outlet>
+        </main>
+    </mat-drawer-content>
+</mat-drawer-container>
