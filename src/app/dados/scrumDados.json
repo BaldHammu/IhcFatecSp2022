@@ -2,23 +2,23 @@
 	"Pessoas": [
 		{
 			"ID_pessoa": 1,
-			"nome": "Estrela"
+			"Nome": "Estrela"
 		},
 		{
 			"ID_pessoa": 2,
-			"nome": "Danilo"
+			"Nome": "Danilo"
 		},
 		{
 			"ID_pessoa": 3,
-			"nome": "Coiado"
+			"Nome": "Coiado"
 		},
 		{
 			"ID_pessoa": 4,
-			"nome": "Vivian"
+			"Nome": "Vivian"
 		},
 		{
 			"ID_pessoa": 5,
-			"nome": "Thaynan"
+			"Nome": "Thaynan"
 		}
 	],
 	"Projetos": [
@@ -37,7 +37,7 @@
 			"Data_entregue": "2023-05-15"
 		}
 	],
-	"Sprint": [
+	"Sprints": [
 		{
 			"ID_sprint": 1,
 			"ID_projeto": 1,
@@ -67,7 +67,7 @@
 			"Data_entregue": "2023-01-15"
 		}
 	],
-	"Role": [
+	"Roles": [
 		{
 			"ID_role": 1,
 			"Descricao": "Product Owner"
@@ -81,7 +81,7 @@
 			"Descricao": "Desenvolvedor"
 		}
 	],
-	"Alocacao": [
+	"Alocacoes": [
 		{
 			"ID_projeto": 1,
 			"ID_pessoa": 1,
@@ -118,7 +118,7 @@
 			"ID_role": 3
 		}
 	],
-	"StatusTarefa": [
+	"StatusTarefas": [
 		{
 			"ID_status": 1,
 			"Descricao": "Planejando"
@@ -164,7 +164,7 @@
 		{
 			"ID_tarefa": 4,
 			"ID_sprint": 3,
-			"Descricao": "cpmcretação",
+			"Descricao": "Concretação",
 			"Status": 3,
 			"Data_inicio": "2022-11-22",
 			"Data_fim": "2023-12-07"
