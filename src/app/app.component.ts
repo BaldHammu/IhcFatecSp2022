@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Pessoas from './dados/scrumDados.json';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Ihc2022';
+  public pessoaList:{}[] = Pessoas;
 }

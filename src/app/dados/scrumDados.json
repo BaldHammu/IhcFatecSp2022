@@ -1,0 +1,200 @@
+{
+	"Pessoas": [
+		{
+			"ID_pessoa": 1,
+			"nome": "Estrela"
+		},
+		{
+			"ID_pessoa": 2,
+			"nome": "Danilo"
+		},
+		{
+			"ID_pessoa": 3,
+			"nome": "Coiado"
+		},
+		{
+			"ID_pessoa": 4,
+			"nome": "Vivian"
+		},
+		{
+			"ID_pessoa": 5,
+			"nome": "Thaynan"
+		}
+	],
+	"Projetos": [
+		{
+			"ID_projeto": 1,
+			"Nome": "Carro",
+			"Descricao": "Criar um carro",
+			"Data_inicio": "2022-11-01",
+			"Data_entregue": "2023-01-30"
+		},
+		{
+			"ID_projeto": 2,
+			"Nome": "Ponte",
+			"Descricao": "Construir a ponte",
+			"Data_inicio": "2022-11-14",
+			"Data_entregue": "2023-05-15"
+		}
+	],
+	"Sprint": [
+		{
+			"ID_sprint": 1,
+			"ID_projeto": 1,
+			"Descricao": "Arquitetura",
+			"Data_inicio": "2022-11-01",
+			"Data_entregue": "2023-11-15"
+		},
+		{
+			"ID_sprint": 2,
+			"ID_projeto": 1,
+			"Descricao": "Sistema de freio",
+			"Data_inicio": "2022-11-16",
+			"Data_entregue": "2023-11-30"
+		},
+		{
+			"ID_sprint": 3,
+			"ID_projeto": 2,
+			"Descricao": "Fundação",
+			"Data_inicio": "2022-11-14",
+			"Data_entregue": "2023-12-14"
+		},
+		{
+			"ID_sprint": 4,
+			"ID_projeto": 2,
+			"Descricao": "Pilares",
+			"Data_inicio": "2022-12-15",
+			"Data_entregue": "2023-01-15"
+		}
+	],
+	"Role": [
+		{
+			"ID_role": 1,
+			"Descricao": "Product Owner"
+		},
+		{
+			"ID_role": 2,
+			"Descricao": "Scrum Master"
+		},
+		{
+			"ID_role": 3,
+			"Descricao": "Desenvolvedor"
+		}
+	],
+	"Alocacao": [
+		{
+			"ID_projeto": 1,
+			"ID_pessoa": 1,
+			"ID_role": 2
+		},
+		{
+			"ID_projeto": 1,
+			"ID_pessoa": 2,
+			"ID_role": 1
+		},
+		{
+			"ID_projeto": 1,
+			"ID_pessoa": 5,
+			"ID_role": 3
+		},
+		{
+			"ID_projeto": 1,
+			"ID_pessoa": 5,
+			"ID_role": 3
+		},
+		{
+			"ID_projeto": 2,
+			"ID_pessoa": 4,
+			"ID_role": 1
+		},
+		{
+			"ID_projeto": 2,
+			"ID_pessoa": 3,
+			"ID_role": 2
+		},
+		{
+			"ID_projeto": 2,
+			"ID_pessoa": 5,
+			"ID_role": 3
+		}
+	],
+	"StatusTarefa": [
+		{
+			"ID_status": 1,
+			"Descricao": "Planejando"
+		},
+		{
+			"ID_status": 2,
+			"Descricao": "Selecionado"
+		},
+		{
+			"ID_status": 3,
+			"Descricao": "Executando"
+		},
+		{
+			"ID_status": 4,
+			"Descricao": "Entregue"
+		}
+	],
+	"Tarefas": [
+		{
+			"ID_tarefa": 1,
+			"ID_sprint": 2,
+			"Descricao": "Pastilhas roda",
+			"Status": 1,
+			"Data_inicio": "2022-11-18",
+			"Data_fim": "2023-12-25"
+		},
+		{
+			"ID_tarefa": 2,
+			"ID_sprint": 2,
+			"Descricao": "Freio de mao",
+			"Status": 2,
+			"Data_inicio": "2022-11-16",
+			"Data_fim": "2023-11-23"
+		},
+		{
+			"ID_tarefa": 3,
+			"ID_sprint": 3,
+			"Descricao": "Escavação",
+			"Status": 4,
+			"Data_inicio": "2022-11-14",
+			"Data_fim": "2023-11-21"
+		},
+		{
+			"ID_tarefa": 4,
+			"ID_sprint": 3,
+			"Descricao": "cpmcretação",
+			"Status": 3,
+			"Data_inicio": "2022-11-22",
+			"Data_fim": "2023-12-07"
+		}
+	],
+	"Execucoes": [
+		{
+			"ID_pessoa": 5,
+			"ID_projeto": 1,
+			"ID_tarefa": 1
+		},
+		{
+			"ID_pessoa": 5,
+			"ID_projeto": 1,
+			"ID_tarefa": 2
+		},
+		{
+			"ID_pessoa": 5,
+			"ID_projeto": 2,
+			"ID_tarefa": 3
+		},
+		{
+			"ID_pessoa": 5,
+			"ID_projeto": 2,
+			"ID_tarefa": 4
+		},
+		{
+			"ID_pessoa": 3,
+			"ID_projeto": 2,
+			"ID_tarefa": 3
+		}
+	]
+}
