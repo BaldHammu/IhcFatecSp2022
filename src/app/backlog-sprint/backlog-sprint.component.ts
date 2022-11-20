@@ -8,11 +8,11 @@ import { DialogCardGraphComponent } from '../dialog-card-graph/dialog-card-graph
 
 
 @Component({
-  selector: 'app-backlog',
-  templateUrl: './backlog.component.html',
-  styleUrls: ['./backlog.component.scss']
+  selector: 'app-backlog-sprint',
+  templateUrl: './backlog-sprint.component.html',
+  styleUrls: ['./backlog-sprint.component.scss']
 })
-export class BacklogComponent implements OnInit {
+export class BacklogSprintComponent implements OnInit {
   registerForm:FormGroup = this.fb.group({
   email: ['',[Validators.required,Validators.email]],
   senha: ['',Validators.required],

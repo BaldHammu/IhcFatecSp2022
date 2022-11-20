@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes} from '@angular/router'
+import { BacklogSprintComponent } from '../backlog-sprint/backlog-sprint.component'
 import { BacklogComponent } from '../backlog/backlog.component'
 import { LoginComponent } from '../login/login/login.component'
 import { ParametrosProjetoComponent } from '../parametros-projeto/parametros-projeto.component'
@@ -11,6 +12,7 @@ const routes:Routes =[
         {path:'login', component:LoginComponent},
         {path:'registrar-se', component:RegisterComponent},
         {path:'backlog', component:BacklogComponent},
+        {path:'backlog-sprint', component:BacklogSprintComponent},
         {path:'parametros', component:ParametrosProjetoComponent}]}
 ]
 @NgModule({

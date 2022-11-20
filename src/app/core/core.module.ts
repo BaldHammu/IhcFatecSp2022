@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/material-module/shared-module.module';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { RegisterComponent } from '../register/register.component';
 import { BacklogComponent } from '../backlog/backlog.component';
+import { BacklogSprintComponent } from '../backlog-sprint/backlog-sprint.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { BacklogComponent } from '../backlog/backlog.component';
     HeaderComponent,
     SidenavComponent,
     RegisterComponent,
-    BacklogComponent
+    BacklogComponent,
+    BacklogSprintComponent
   ],
   imports: [
     CommonModule,
