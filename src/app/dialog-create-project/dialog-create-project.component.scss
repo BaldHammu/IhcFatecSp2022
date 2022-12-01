@@ -1,0 +1,54 @@
+.max{
+    height: 70vh;
+}
+.maximum{
+    max-height: 70vh;
+}
+mat-form-field,p,mat-form-field-infix{
+    width:150px;
+}
+input{
+    width:100px;
+}
+textarea {
+    resize: none;
+  }
+h3{
+    margin:5px 5px 5px 5px;
+    transform: rotate(270deg);
+    color: white;
+    border-radius:5px;
+}
+.backlog{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y:hidden;
+    overflow-x: hidden;
+}
+textarea{
+    overflow-x: auto;
+}
+.title{
+    background-color: #7b1fa2;
+    width: 30px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.dificuldade{
+    background-color: rgb(108, 255, 120);
+    width: fit-content;
+    padding: 2px;
+    border-radius: 4px;
+    p{
+        color: black;
+    }
+}
+
+.backlogItem{
+    width: fit-content !important;
+    flex-shrink: 0;
+}

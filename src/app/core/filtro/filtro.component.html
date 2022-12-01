@@ -1,0 +1,35 @@
+<mat-expansion-panel hideToggle class="maximum mb-4">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Opçöes
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <mat-form-field appearance="fill">
+        <mat-label>Pesquisar</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <form [formGroup]="formCore">
+        <mat-form-field>
+            <mat-label>Selecione uma sprint</mat-label>
+            <mat-select formControlName="sprint" (closed)="filterObj()">
+                <mat-option [value]="null">
+                    Selecione um projeto
+                </mat-option>
+                <mat-option *ngFor="let sprintFiltro of sprints" [value]="sprintFiltro.id">
+                    {{sprintFiltro.nome}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    <div fxLayout="column" fxLayoutAlign="space-between" fxLayoutGap="5px">
+        <button mat-raised-button color="primary" (click)="createBacklog()" *ngIf="enable">
+            Adicionar {{backlog?'Backlog':'Artefato'}}
+            <mat-icon>add_circle_outline</mat-icon>
+        </button>
+        <button mat-raised-button color="accent" (click)="log()">
+            <mat-icon>search</mat-icon>Filtrar
+        </button>
+    </div>
+</mat-expansion-panel>

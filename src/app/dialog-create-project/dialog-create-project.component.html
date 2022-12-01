@@ -1,0 +1,38 @@
+    <h2 mat-dialog-title>Detalhes da Task</h2>
+    <form [formGroup]="formProject">
+        <mat-card fxLayout="row" class="maximum backlog mb-3" fxLayoutGap="10px">
+            <div class="title">
+                <h3>Detalhes</h3>
+            </div>
+            <mat-card class="backlogItem">
+                <mat-form-field appearance="fill">
+                    <mat-label>Nome</mat-label>
+                    <input matInput formControlName="nome">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Integrantes</mat-label>
+                    <input matInput formControlName="integrantes">
+                </mat-form-field>
+                <p>Criado Em: {{dataCriacao | date:'dd/MMM/yyyy'}}</p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Término Previsto</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="dataTermino" (dateChange)="calculatePrazo()">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Prazo</mat-label>
+                    <input matInput formControlName="prazo">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Descrição</mat-label>
+                    <textarea matInput formControlName="descricao"></textarea>
+                </mat-form-field>
+            </mat-card>
+        </mat-card>
+    </form>
+    <div fxLayout="row" fxLayoutAlign="flex-end">
+        <button mat-raised-button color="accent" (click)="print()">
+            <mat-icon>search</mat-icon>Salvar Projeto
+        </button>
+    </div>
