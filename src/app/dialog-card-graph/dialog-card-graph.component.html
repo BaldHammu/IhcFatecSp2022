@@ -1,9 +1,37 @@
 <h2 mat-dialog-title>Detalhes da Task</h2>
-<mat-card>
-    
-    
-
-    <p>dialog-card-graph works!</p>
-
+<mat-card fxLayout="row" class="maximum backlog" fxLayoutGap="10px">
+    <div class="title">
+        <h3>Detalhes</h3>
+    </div>
+    <mat-card class="backlogItem">
+        <mat-form-field appearance="fill">
+            <mat-label>Status Atual</mat-label>
+            <select matNativeControl required>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select>
+        </mat-form-field>
+        <p>Criado Em:</p>
+        <p>Prazo:</p>
+    </mat-card>
 </mat-card>
-
+<mat-card fxLayout="row" class="maximum backlog" fxLayoutGap="10px">
+    <div class="title">
+        <h3>Descrição</h3>
+    </div>
+    <mat-card class="backlogItem">
+        <textarea>
+Salamaleico
+        </textarea>
+    </mat-card>
+</mat-card>
+<mat-card fxLayout="row" class="maximum backlog" fxLayoutGap="10px">
+    <div class="title">
+        <h3>Histórico</h3>
+    </div>
+    <mat-card fxLayout="row no-wrap" fxLayoutAlign="center center">
+    <P fxLayout="row no-wrap" fxLayoutAlign="center center">Criado em {{data |date :'d/M/yy'}} : Danilo  <mat-icon>arrow_right_alt</mat-icon></P>
+    </mat-card>
+</mat-card>

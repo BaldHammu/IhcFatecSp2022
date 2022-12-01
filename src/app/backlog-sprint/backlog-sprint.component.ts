@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCardGraphComponent } from '../dialog-card-graph/dialog-card-graph.component';
+import { SharedDataService } from '../shared/shared-data.service';
 
 
 @Component({
@@ -18,9 +19,13 @@ export class BacklogSprintComponent implements OnInit {
   senha: ['',Validators.required],
   confirmarSenha:['',Validators.required]
   })
-  constructor(private fb:FormBuilder,private router:Router,private auth:AngularFireAuth, private dialog:MatDialog) { }
+  sprintBacklog:any;
+  constructor(private fb:FormBuilder,private router:Router,private auth:AngularFireAuth, private dialog:MatDialog,private shared:SharedDataService) { }
 
   ngOnInit(): void {
+    this.sprintBacklog = this.shared.mockObj.backlog;
+   this.shared.updateObjects.subscribe(()=>this.sprintBacklog = this.shared.mockFiltered);
+    
   }
 
 

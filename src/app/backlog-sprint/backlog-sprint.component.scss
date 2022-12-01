@@ -23,12 +23,14 @@ h3{
 
 .title{
     background-color: #7b1fa2;
-    width: 50px;
-    height: 100px;
+    width: fit-content;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 4px;
+    text-align: center;
+    -webkit-line-clamp: 2;
 }
 .dificuldade{
     background-color: rgb(108, 255, 120);

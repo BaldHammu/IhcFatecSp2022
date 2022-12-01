@@ -1,12 +1,24 @@
 <app-header (menu)="openDrawer()"></app-header>
 <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" [opened]="openClose">
+    <mat-drawer mode="over" [opened]="openClose">
         <li fxLayout="column">
-            <a (click)="clickLink('login')"><mat-icon>home</mat-icon>Login</a>
             <a (click)="clickLink('backlog')"><mat-icon>layers</mat-icon>Backlog</a>
             <a (click)="clickLink('backlog-sprint')"><mat-icon>layers</mat-icon>Backlog de Sprint</a>
             <a (click)="clickLink('parametros')"><mat-icon>create</mat-icon>Parametros</a>
         </li>
+        <form [formGroup]="formCore">
+            <mat-form-field>
+                <mat-label>Selecione um projeto</mat-label>
+                <mat-select formControlName="projeto" (closed)="filterObj()">
+                    <mat-option [value]="null">
+                        Selecione um projeto
+                    </mat-option>
+                    <mat-option *ngFor="let projetoFiltro of projetos" [value]="projetoFiltro.id">
+                        {{projetoFiltro.nome}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
     </mat-drawer>
     <mat-drawer-content>
         <main>

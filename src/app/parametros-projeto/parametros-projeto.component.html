@@ -3,82 +3,77 @@
         <mat-expansion-panel hideToggle class="maximum mb-4">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    Parametros
+                    Gerenciar Projetos
                 </mat-panel-title>
                 <mat-panel-description>
+                    Crie, edite ou delete seus projetos
                 </mat-panel-description>
             </mat-expansion-panel-header>
-            <mat-form-field appearance="fill">
-                <mat-label>Input</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Select</mat-label>
-                <mat-select>
-                    <mat-option value="one">First option</mat-option>
-                    <mat-option value="two">Second option</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Textarea</mat-label>
-                <textarea matInput></textarea>
-            </mat-form-field>
-            <button mat-raised-button color="accent">
-                <mat-icon>search</mat-icon>Filtrar
+            <div *ngIf="projetos">
+
+                <mat-card *ngFor="let projeto of projetos" class="mb-3">
+                    <div fxLayout="row" fxLayoutGap="5px">
+                        <div fxLayout="column">
+                            <h4>{{projeto?.nome}}</h4>
+                            <div fxLayout="row" fxLayoutAlign="space-between">
+                                <button mat-icon-button (click)="edit(projeto)">
+                                    <mat-icon>create</mat-icon>
+                                </button>
+                                <button mat-icon-button color="warn" (click)="deletar(projeto)">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="descricao">
+                            <pre>{{projeto?.descricao}}</pre>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+
+            <button mat-icon-button color="accent" (click)="novo()">
+                <mat-icon>add_circle_outline</mat-icon>
             </button>
         </mat-expansion-panel>
         <mat-expansion-panel hideToggle class="maximum mb-4">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    Parametros
+                    Gerenciar Sprints
                 </mat-panel-title>
                 <mat-panel-description>
+                    Crie ou edite sprints
                 </mat-panel-description>
             </mat-expansion-panel-header>
-            <mat-form-field appearance="fill">
-                <mat-label>Input</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Select</mat-label>
-                <mat-select>
-                    <mat-option value="one">First option</mat-option>
-                    <mat-option value="two">Second option</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Textarea</mat-label>
-                <textarea matInput></textarea>
-            </mat-form-field>
-            <button mat-raised-button color="accent">
-                <mat-icon>search</mat-icon>Filtrar
-            </button>
-        </mat-expansion-panel>
-        <mat-expansion-panel hideToggle class="maximum mb-4">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Parametros
-                </mat-panel-title>
-                <mat-panel-description>
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-            <mat-form-field appearance="fill">
-                <mat-label>Input</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Select</mat-label>
-                <mat-select>
-                    <mat-option value="one">First option</mat-option>
-                    <mat-option value="two">Second option</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Textarea</mat-label>
-                <textarea matInput></textarea>
-            </mat-form-field>
-            <button mat-raised-button color="accent">
-                <mat-icon>search</mat-icon>Filtrar
+            <form [formGroup]="formSprint">
+                <mat-form-field>
+                    <mat-label>Selecione um projeto</mat-label>
+                    <mat-select formControlName="projeto" (closed)="filterObj()">
+                        <mat-option [value]="null">
+                            Selecione um projeto
+                        </mat-option>
+                        <mat-option *ngFor="let projetoFiltro of projetos" [value]="projetoFiltro.id">
+                            {{projetoFiltro.nome}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+
+            <div *ngIf="f != null">
+                <mat-card *ngFor="let sprint of projetoSelecionado?.sprint" class="mb-3">
+                    <div fxLayout="row" fxLayoutGap="5px">
+                        <div fxLayout="column">
+                            <h4>{{sprint?.nome}}</h4>
+
+                            <button mat-icon-button (click)="editSprint(sprint)">
+                                <mat-icon>create</mat-icon>
+                            </button>
+                        </div>
+                        </div>
+                </mat-card>
+            </div>
+
+            <button *ngIf="f != null" mat-icon-button color="accent" (click)="criarSprint()">
+                <mat-icon>add_circle_outline</mat-icon>
             </button>
         </mat-expansion-panel>
 

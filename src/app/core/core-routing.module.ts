@@ -8,7 +8,8 @@ import { RegisterComponent } from '../register/register.component'
 import { CoreComponent } from './core.component'
 
 const routes:Routes =[
-    {path:'', component:CoreComponent, children:[
+    {path:'', component:CoreComponent,  children:[
+        {path: '', redirectTo: 'login', pathMatch: 'full'},
         {path:'login', component:LoginComponent},
         {path:'registrar-se', component:RegisterComponent},
         {path:'backlog', component:BacklogComponent},

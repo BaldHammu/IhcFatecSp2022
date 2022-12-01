@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialog-card-graph.component.scss']
 })
 export class DialogCardGraphComponent implements OnInit {
-
+  data:Date = new Date();
   constructor() { }
 
   ngOnInit(): void {

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SharedDataService } from 'src/app/shared/shared-data.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
     email: ['',[Validators.required,Validators.email]],
     senha: ['',Validators.required]
   })
-  constructor(private fb:FormBuilder, private router:Router,private auth:AngularFireAuth) { }
+  constructor(private fb:FormBuilder, private router:Router,private auth:AngularFireAuth,private shared:SharedDataService) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +26,11 @@ export class LoginComponent implements OnInit {
 
   authenticateUser(){
     this.auth.signInWithEmailAndPassword(this.f.email,this.f.senha)
-    .then((credential)=>console.log(credential))
+    .then((credential)=>{
+      this.shared.usuarioLogado=this.f.email;
+      this.shared.loginFilter();
+      this.router.navigate(['/backlog']);
+    })
     .catch((err)=>console.log(err))
   }
 

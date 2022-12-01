@@ -1,53 +1,25 @@
 <div class="container max">
     <mat-accordion>
-        <mat-expansion-panel hideToggle class="maximum mb-4">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    Filtros
-                </mat-panel-title>
-                <mat-panel-description>
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-            <mat-form-field appearance="fill">
-                <mat-label>Input</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Select</mat-label>
-                <mat-select>
-                    <mat-option value="one">First option</mat-option>
-                    <mat-option value="two">Second option</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>Textarea</mat-label>
-                <textarea matInput></textarea>
-            </mat-form-field>
-            <button mat-raised-button color="accent" (click)="openDialog()">
-                <mat-icon>search</mat-icon>Filtrar
-            </button>
-        </mat-expansion-panel>
+        <app-filtro></app-filtro>
     </mat-accordion>
     <mat-card fxLayout="column" class="maximum" fxLayoutGap="15px">
-        <mat-card fxLayout="row" class="maximum backlog" fxLayoutGap="10px">
-            <div class="title">
-                <h3>Limpar a casa</h3>
-            </div>
-        </mat-card>
-        <mat-card fxLayout="row" class="maximum backlog">
-            <div class="title">
-                <h3>Limpar a casa</h3>
-            </div>
-        </mat-card>
-        <mat-card fxLayout="row" class="maximum backlog">
-            <div class="title">
-                <h3>Limpar a casa</h3>
-            </div>
-        </mat-card>
-        <mat-card fxLayout="row" class="maximum backlog">
-            <div class="title">
-                <h3>Limpar a casa</h3>
-            </div>
+        <mat-card fxLayout="row" class="maximum backlog" fxLayoutGap="10px" *ngFor="let sprint of sprintBacklog">
+            <mat-card class="title">
+                <h3>{{sprint.titulo}}</h3>
+            </mat-card>
+            <mat-card class="backlogItem" (click)="openDialog()" *ngFor="let artefato of sprint.artefato">
+                <h4>{{artefato.titulo}}</h4>
+                <div class="dificuldade" fxLayout="column" fxLayoutAlign="center">
+                    <p>
+                        {{artefato.dificuldade}}
+                    </p>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="end" class="mt-2">
+                    <p>
+                        {{artefato.responsavel}}
+                    </p>
+                </div>
+            </mat-card>
         </mat-card>
     </mat-card>
 </div>

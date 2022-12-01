@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogCardGraphComponent } from '../dialog-card-graph/dialog-card-graph.component';
+import { DialogCriarBacklogComponent } from '../dialog-criar-backlog/dialog-criar-backlog.component';
+import { SharedDataService, Status } from '../shared/shared-data.service';
 
 
 @Component({
@@ -13,26 +14,35 @@ import { DialogCardGraphComponent } from '../dialog-card-graph/dialog-card-graph
   styleUrls: ['./backlog.component.scss']
 })
 export class BacklogComponent implements OnInit {
-  registerForm:FormGroup = this.fb.group({
-  email: ['',[Validators.required,Validators.email]],
-  senha: ['',Validators.required],
-  confirmarSenha:['',Validators.required]
-  })
-  constructor(private fb:FormBuilder,private router:Router,private auth:AngularFireAuth, private dialog:MatDialog) { }
+  sprints:any=[];
+  backlog:any;
+  constructor(private fb:FormBuilder,private router:Router,private auth:AngularFireAuth, private dialog:MatDialog, private shared:SharedDataService) { }
 
   ngOnInit(): void {
+    this.backlog = this.shared.mockObj.backlog;
+    this.shared.updateObjects.subscribe(()=>{
+      if(this.shared?.projetoAtual?.length >=0){
+        this.backlog = this.shared.projetoAtual[0];
+
+      }
+   });
   }
 
 
 get f(){
-  return this.registerForm.value
+  return 
 } 
 
-openDialog(){
-  this.dialog.open(DialogCardGraphComponent)
+openDialog(tarefa:any){
+  this.dialog.open(DialogCriarBacklogComponent,{data:{projeto:tarefa}, maxHeight:`80vh`,maxWidth:`90vw`})
 }
   
-  toLogin(){
-    this.router.navigate(['/login']);
-  }
+toLogin(){
+   this.router.navigate(['/login']);
+}
+
+  get planejando(){if(this.backlog?.sprint[0]?.backlog?.length >=0)return this.backlog?.sprint[0]?.backlog?.filter((x:any)=>x.status==Status.Planejando)}
+  get selecionado(){if(this.backlog?.sprint[0]?.backlog?.length >=0)return this.backlog?.sprint[0]?.backlog?.filter((x:any)=>x.status==Status.Selecionado)}
+  get executando(){if(this.backlog?.sprint[0]?.backlog?.length >=0)return this.backlog?.sprint[0]?.backlog?.filter((x:any)=>x.status==Status.Executando)}
+  get entregue(){if(this.backlog?.sprint[0]?.backlog?.length >=0)return this.backlog?.sprint[0]?.backlog?.filter((x:any)=>x.status==Status.Entregue)}
 }

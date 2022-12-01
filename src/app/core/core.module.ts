@@ -9,6 +9,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { RegisterComponent } from '../register/register.component';
 import { BacklogComponent } from '../backlog/backlog.component';
 import { BacklogSprintComponent } from '../backlog-sprint/backlog-sprint.component';
+import { FiltroComponent } from './filtro/filtro.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { BacklogSprintComponent } from '../backlog-sprint/backlog-sprint.compone
     SidenavComponent,
     RegisterComponent,
     BacklogComponent,
-    BacklogSprintComponent
+    BacklogSprintComponent,
+    FiltroComponent
   ],
   imports: [
     CommonModule,

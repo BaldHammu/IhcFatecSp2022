@@ -14,3 +14,15 @@ h3{
     color: black;
     border-radius:5px;
 }
+.projetoMain{
+    margin-left: 5px;
+}
+mat-expansion-panel{
+    overflow-y: auto;
+}
+.descricao{
+    overflow-x: auto;
+    pre{
+        height: 90px;
+    }
+}
