@@ -19,13 +19,7 @@ export class BacklogComponent implements OnInit {
   constructor(private fb:FormBuilder,private router:Router,private auth:AngularFireAuth, private dialog:MatDialog, private shared:SharedDataService) { }
 
   ngOnInit(): void {
-    this.backlog = this.shared.mockObj.backlog;
-    this.shared.updateObjects.subscribe(()=>{
-      if(this.shared?.projetoAtual?.length >=0){
-        this.backlog = this.shared.projetoAtual[0];
-
-      }
-   });
+  
   }
 
 

@@ -51,7 +51,7 @@
                         <mat-option [value]="null">
                             Selecione um projeto
                         </mat-option>
-                        <mat-option *ngFor="let projetoFiltro of projetos" [value]="projetoFiltro.id">
+                        <mat-option *ngFor="let projetoFiltro of projetos" [value]="projetoFiltro.key">
                             {{projetoFiltro.nome}}
                         </mat-option>
                     </mat-select>
@@ -59,13 +59,16 @@
             </form>
 
             <div *ngIf="f != null">
-                <mat-card *ngFor="let sprint of projetoSelecionado?.sprint" class="mb-3">
+                <mat-card *ngFor="let sprint of sprints" class="mb-3">
                     <div fxLayout="row" fxLayoutGap="5px">
                         <div fxLayout="column">
                             <h4>{{sprint?.nome}}</h4>
 
                             <button mat-icon-button (click)="editSprint(sprint)">
                                 <mat-icon>create</mat-icon>
+                            </button>
+                            <button mat-icon-button color="warn" (click)="deletarSprint(sprint)">
+                                <mat-icon>close</mat-icon>
                             </button>
                         </div>
                         </div>

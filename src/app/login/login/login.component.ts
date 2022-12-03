@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
     this.auth.signInWithEmailAndPassword(this.f.email,this.f.senha)
     .then((credential)=>{
       this.shared.usuarioLogado=this.f.email;
-      this.shared.loginFilter();
       this.router.navigate(['/backlog']);
     })
     .catch((err)=>console.log(err))

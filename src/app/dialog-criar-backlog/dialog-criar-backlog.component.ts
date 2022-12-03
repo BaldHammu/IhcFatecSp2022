@@ -66,27 +66,9 @@ export class DialogCriarBacklogComponent implements OnInit {
   print(){
     let backlog = this.formBacklog.value;
     backlog.integrantes = backlog.integrantes.split(',');
-    let sprint = this.shared.projetoAtual[0].sprint.filter((x:any)=>x.id==this.data.id)
-    if(backlog.id != null){
-      this.shared.projetoAtual[0].sprint.splice(this.shared.projetoAtual[0].sprint.indexOf((x:any)=>x.id==this.data.id),1);  
-    }
-    else{
-      backlog.id = SharedDataService.newGuid();
-    }
-    if(sprint[0]?.backlog?.length>=0){
-      sprint[0]?.backlog?.push(backlog)
-    }
-    else{
-      console.log(sprint)
-      sprint[0] = {...sprint[0],backlog:[backlog]}
-    }
-    if(this.shared.projetoAtual[0]?.sprint?.lenghth >=0){
-      this.shared.projetoAtual[0].sprint.push(sprint)
-    }
-    else{
-      this.shared.projetoAtual[0] = {...this.shared.projetoAtual[0],sprint}
-    }
-    this.shared.updateObjects.next(null);
+    let sprint = 'oi'
+ 
+  
     this.dialog.close()
   }
 }

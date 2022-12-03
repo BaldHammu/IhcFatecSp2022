@@ -18,10 +18,6 @@ export class CoreComponent implements OnInit {
   constructor(private Router:Router,private shared:SharedDataService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
-    this.projetos = this.shared.mockFiltered;
-    this.shared.updateObjects.subscribe(()=>{
-      this.projetos = this.shared.mockFiltered;
-      });
   }
 
   openDrawer(){
@@ -31,7 +27,6 @@ export class CoreComponent implements OnInit {
     this.Router.navigate([link]);
   }
   filterObj(){
-    this.shared.filterProjeto(this.formCore.value.projeto);
   }
   
 }

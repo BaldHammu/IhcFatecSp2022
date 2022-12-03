@@ -18,11 +18,6 @@ export class FiltroComponent implements OnInit {
   constructor(private route:ActivatedRoute, private dialog:MatDialog, private shared:SharedDataService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
-    this.shared.updateObjects.subscribe(()=>{
-      if(this?.shared?.projetoAtual?.length >=0){
-        this.sprints = this.shared?.projetoAtual[0]?.sprint;
-      }
-   });
   }
   
 createBacklog(){
@@ -36,9 +31,6 @@ get enable(){return this.formCore.value.sprint != null}
 
 filterObj(){
   console.log(this.sprints)
-}
-log(){
-  console.log(this.shared.projetoAtual)
 }
 }
 
