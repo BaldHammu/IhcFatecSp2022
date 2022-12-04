@@ -21,6 +21,7 @@ export class DialogCardGraphComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.data?.backlog != null){
+      this.switchBacklog = this.data?.switch?this.data?.switch:false;
       this.dataCriacao = new Date(this.data.backlog.dataCriacao);
       this.formBacklog.patchValue({
         status:this.data.backlog.status,

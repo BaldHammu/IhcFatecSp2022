@@ -30,7 +30,7 @@ export class DialogEditarSprintComponent implements OnInit {
       this.formProject.patchValue({
         nome: this.data.sprint.nome,
         dataTermino: new Date(this.data.sprint.dataTermino),
-        prazo:this.data.projeto?.prazo?this.data.projeto.prazo:Math.floor(((this.data.projeto.dataTermino.valueOf() + 86400000) - this.dataCriacao.valueOf())/ 86400000),
+        prazo:this.data.sprint.prazo,
         id: this.data.sprint.id
       })
     }
@@ -46,9 +46,9 @@ export class DialogEditarSprintComponent implements OnInit {
   print() {
     const sprint:sprint = {
       nome:this.formProject.value.nome,
-      dataCriacao:this.dataCriacao,
-      dataTermino:this.formProject.value.dataTermino?._d?this.formProject.value.dataTermino._d.getTime():this.formProject.value.dataTermino,
-      prazo:this.formProject.value.nome,
+      dataCriacao:this.dataCriacao.getTime(),
+      dataTermino:this.formProject.value.dataTermino?._d?this.formProject.value.dataTermino._d.getTime():this.formProject.value.dataTermino.getTime(),
+      prazo:this.formProject.getRawValue().prazo,
       projectKey: this.data.key
     }
     if(this.data?.sprint?.key != null){
@@ -57,6 +57,7 @@ export class DialogEditarSprintComponent implements OnInit {
     else{
       this.shared.createSprints(sprint)
     }
+    console.log(sprint)
     this.dialog.close()
   }
 }

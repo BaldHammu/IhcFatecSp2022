@@ -51,7 +51,8 @@ export class DialogCriarBacklogArtefato implements OnInit {
         )
       )
     ).subscribe((data:any) => {
-      this.backlog = data.filter((x: any) => x.sprintKey == this.data?.projeto?.sprintKey?this.data?.projeto?.sprintKey:this.data.key);
+      console.log(data)
+      this.backlog = data.filter((x: any) => x.sprintKey == this.data.key);
     });
     if(this.data?.projeto != null){
       this.edicao = true;
@@ -91,10 +92,12 @@ export class DialogCriarBacklogArtefato implements OnInit {
       dataCriacao:this.dataCriacao.getTime()
     };
     if(this.data?.projeto?.key != null){
-      this.shared.updateArtefato(this.data?.projeto.key,backlogEnvio)
+      console.log(this.data)
+      this.shared.updateArtefato(this.data.projeto.key,backlogEnvio)
       this.shared.subFilterBacklog.next(null);
     }
     else{
+      console.log(this.data)
       this.shared.createArtefato(backlogEnvio);
     }
     this.dialog.close()

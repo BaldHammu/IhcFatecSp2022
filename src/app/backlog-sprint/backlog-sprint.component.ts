@@ -31,7 +31,7 @@ export class BacklogSprintComponent implements OnInit {
   }
 
   openDialog(tarefa:any) {
-    this.dialog.open(DialogCardGraphComponent,{data:{backlog:tarefa}, maxHeight:`80vh`,maxWidth:`90vw`})
+    this.dialog.open(DialogCardGraphComponent,{data:{backlog:tarefa,switch:true}, maxHeight:`80vh`,maxWidth:`90vw`})
   }
 
   toLogin() {

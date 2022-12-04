@@ -2,6 +2,7 @@
     height: 70vh;
 }
 .maximum{
+    overflow-y: auto;
     max-height: 70vh;
 }
 mat-form-field{
@@ -44,4 +45,10 @@ h3{
     width: 125px !important;
     flex-shrink: 0;
     padding-top: 24px;
+}
+
+mat-card.maximum.backlog{
+
+    padding-top: 150px !important;
+    padding-bottom: 150px !important;
 }

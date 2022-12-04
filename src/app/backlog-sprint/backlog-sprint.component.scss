@@ -1,8 +1,9 @@
 .max{
-    height: 70vh;
+    height: 80vh;
 }
 .maximum{
-    max-height: 70vh;
+    overflow-y: auto;
+    max-height: 80vh;
 }
 mat-form-field{
     width:240px;
@@ -20,11 +21,16 @@ h3{
     overflow-y: hidden;
     overflow-x: auto;
 }
+h3{
+    flex: none;
+    height: 55px;
+    width: 200px;
+}
 
 .title{
     background-color: #7b1fa2;
-    width: fit-content;
-    height: fit-content;
+    width: 100px;
+    height: 270px;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -8,12 +8,12 @@
                 <h3>Planejando</h3>
             </div>
             <mat-card class="backlogItem m-2" (click)="openDialog(tarefa)" *ngFor="let tarefa of planejando">
-                <h4>Titulo: {{tarefa.titulo}}</h4>
+                <h4><b>Titulo:</b> {{tarefa.titulo}}</h4>
                 <div class="dificuldade" fxLayout="column" fxLayoutAlign="center">
-                    <p>Dificuldade: {{tarefa.dificuldade}}</p>
+                    <p><b>Dificuldade:</b> {{tarefa.dificuldade}}</p>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="end" class="mt-2">
-                    <p>Nome do Responsável: {{tarefa.responsavel}}</p>
+                    <p><b>Nome do Responsável:</b> {{tarefa.responsavel}}</p>
                 </div>
             </mat-card>
         </mat-card>
@@ -22,12 +22,12 @@
                 <h3>Selecionado</h3>
             </div>
             <mat-card class="backlogItem m-2 p-2" (click)="openDialog(tarefa)" *ngFor="let tarefa of selecionado">
-                <h4>Titulo: {{tarefa.titulo}}</h4>
+                <h4><b>Titulo:</b> {{tarefa.titulo}}</h4>
                 <div class="dificuldade" fxLayout="column" fxLayoutAlign="center">
-                    <p>Dificuldade: {{tarefa.dificuldade}}</p>
+                    <p><b>Dificuldade:</b> {{tarefa.dificuldade}}</p>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="end" class="mt-2">
-                    <p>Nome do Responsável: {{tarefa.responsavel}}</p>
+                    <p><b>Nome do Responsável:</b> {{tarefa.responsavel}}</p>
                 </div>
             </mat-card>
         </mat-card>
@@ -36,12 +36,12 @@
                 <h3>Executando</h3>
             </div>
             <mat-card class="backlogItem m-2 p-2" (click)="openDialog(tarefa)" *ngFor="let tarefa of executando">
-                <h4>Titulo: {{tarefa.titulo}}</h4>
+                <h4><b>Titulo:</b> {{tarefa.titulo}}</h4>
                 <div class="dificuldade" fxLayout="column" fxLayoutAlign="center">
                     <p>Dificuldade: {{tarefa.dificuldade}}</p>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="end" class="mt-2">
-                    <p>Nome do Responsável: {{tarefa.responsavel}}</p>
+                    <p><b>Nome do Responsável:</b> {{tarefa.responsavel}}</p>
                 </div>
             </mat-card>
         </mat-card>
@@ -50,12 +50,12 @@
                 <h3>Entregue</h3>
             </div>
             <mat-card class="backlogItem m-2 p-2" (click)="openDialog(tarefa)" *ngFor="let tarefa of entregue">
-                <h4>Titulo: {{tarefa.titulo}}</h4>
+                <h4><b>Titulo:</b> {{tarefa.titulo}}</h4>
                 <div class="dificuldade" fxLayout="column" fxLayoutAlign="center">
-                    <p>Dificuldade: {{tarefa.dificuldade}}</p>
+                    <p><b>Dificuldade:</b> {{tarefa.dificuldade}}</p>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="end" class="mt-2">
-                    <p>Nome do Responsável: {{tarefa.responsavel}}</p>
+                    <p><b>Nome do Responsável:</b> {{tarefa.responsavel}}</p>
                 </div>
             </mat-card>
         </mat-card>
