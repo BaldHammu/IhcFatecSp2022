@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     .then((credential)=>{
       this.shared.usuarioLogado=this.f.email;
       this.router.navigate(['/backlog']);
+      this.shared.subFilterProject.next(null);
     })
     .catch((err)=>console.log(err))
   }

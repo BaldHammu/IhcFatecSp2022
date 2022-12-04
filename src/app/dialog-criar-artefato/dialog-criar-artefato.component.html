@@ -1,5 +1,5 @@
-<h2 mat-dialog-title>{{!edicao?'Criar nova':'Editar'}} Task</h2>
-<form [formGroup]="formBacklog">
+<h2 mat-dialog-title>{{!edicao?'Criar novo':'Editar'}} artefato</h2>
+<form [formGroup]="formArtefato">
     <mat-card fxLayout="row" class="maximum backlog mb-3" fxLayoutGap="10px">
         <div class="title">
             <h3>Detalhes</h3>
@@ -10,7 +10,7 @@
                 <input matInput formControlName="titulo">
             </mat-form-field>
             <mat-form-field appearance="fill">
-                <mat-label>Responsável</mat-label>
+                <mat-label>Integrantes</mat-label>
                 <input matInput formControlName="responsavel">
             </mat-form-field>
             <mat-form-field appearance="fill">
@@ -51,9 +51,20 @@
                     </mat-option>
                 </mat-select>
             </mat-form-field>
+            <mat-form-field>
+                <mat-label>Selecione uma sprint</mat-label>
+                <mat-select formControlName="backlog">
+                    <mat-option [value]="null">
+                        Selecione uma Sprint
+                    </mat-option>
+                    <mat-option *ngFor="let backlogFiltro of backlog" [value]="backlogFiltro.key">
+                        {{backlogFiltro.titulo}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
             <div fxLayout="row" fxLayoutAlign="flex-start">
                 <button mat-raised-button color="accent" (click)="print()">
-                    <mat-icon>search</mat-icon>Salvar Backlog
+                    <mat-icon>search</mat-icon>Salvar Artefato
                 </button>
             </div>
         </mat-card>

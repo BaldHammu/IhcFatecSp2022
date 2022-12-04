@@ -14,7 +14,8 @@ const routes:Routes =[
         {path:'registrar-se', component:RegisterComponent},
         {path:'backlog', component:BacklogComponent},
         {path:'backlog-sprint', component:BacklogSprintComponent},
-        {path:'parametros', component:ParametrosProjetoComponent}]}
+        {path:'parametros', component:ParametrosProjetoComponent}
+    ]}
 ]
 @NgModule({
     imports:[RouterModule.forChild(routes)],

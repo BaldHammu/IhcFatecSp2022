@@ -3,14 +3,15 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_LOCALE, MAT_DATE_FORMATS } from '@angular/material/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { map } from 'rxjs';
 import {  MY_FORMATS } from '../dialog-create-project/dialog-create-project.component';
 import { backlog } from '../project.models';
 import { SharedDataService, Status } from '../shared/shared-data.service';
 
 @Component({
-  selector: 'app-dialog-criar-backlog',
-  templateUrl: './dialog-criar-backlog.component.html',
-  styleUrls: ['./dialog-criar-backlog.component.scss'],
+  selector: 'app-dialog-criar-artefato',
+  templateUrl: './dialog-criar-artefato.component.html',
+  styleUrls: ['./dialog-criar-artefato.component.scss'],
   providers: [
     {
       provide: DateAdapter,
@@ -21,10 +22,11 @@ import { SharedDataService, Status } from '../shared/shared-data.service';
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
   ],
 })
-export class DialogCriarBacklogComponent implements OnInit {
+export class DialogCriarBacklogArtefato implements OnInit {
   status:any = Object.keys(Status) ;
+  backlog:backlog[] = [];
 
-  formBacklog:FormGroup = this.fb.group({
+  formArtefato:FormGroup = this.fb.group({
     titulo: [''],
     descricao:[''],
     responsavel:['Daniel Estrela'],
@@ -32,19 +34,29 @@ export class DialogCriarBacklogComponent implements OnInit {
     dificuldade:[''],
     dataTermino:[''],
     prazo:this.fb.control({value:null,disabled:true}),
-    status:[null]
+    status:[null],
+    backlog:['']
   });
   dataCriacao:Date=new Date();
   edicao = false;
 
 
-  constructor(private fb:FormBuilder,@Inject(MAT_DIALOG_DATA) private data:any,private shared:SharedDataService,private dialog:MatDialogRef<DialogCriarBacklogComponent>) { }
+  constructor(private fb:FormBuilder,@Inject(MAT_DIALOG_DATA) private data:any,private shared:SharedDataService,private dialog:MatDialogRef<DialogCriarBacklogArtefato>) { }
 
   ngOnInit(): void {
+    this.shared.getAllBacklog().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, ...c.payload.val() })
+        )
+      )
+    ).subscribe((data:any) => {
+      this.backlog = data.filter((x: any) => x.sprintKey == this.data?.projeto?.sprintKey?this.data?.projeto?.sprintKey:this.data.key);
+    });
     if(this.data?.projeto != null){
       this.edicao = true;
       this.dataCriacao = new Date(this.data.projeto.dataCriacao);
-      this.formBacklog.patchValue({
+      this.formArtefato.patchValue({
         titulo:this.data.projeto.titulo,
         descricao:this.data.projeto.descricao,
         responsavel:this.data.projeto.responsavel,
@@ -53,36 +65,37 @@ export class DialogCriarBacklogComponent implements OnInit {
         status:this.data.projeto.status,
         dificuldade:this.data.projeto.dificuldade,
         prazo:this.data.projeto.prazo,
+        backlog:this.data.projeto.backlogKey,
       })
     }
   }
 
   calculatePrazo(){
-    this.formBacklog.patchValue({
-      prazo:Math.ceil((this.formBacklog.value.dataTermino.valueOf() - this.dataCriacao.valueOf())/ 86400000)
+    this.formArtefato.patchValue({
+      prazo:Math.ceil((this.formArtefato.value.dataTermino.valueOf() - this.dataCriacao.valueOf())/ 86400000)
     }) 
   }
 
   print(){
-    console.log(this.dataCriacao)
     const backlogEnvio:backlog = {
-      titulo:this.formBacklog.value.titulo,
-      descricao:this.formBacklog.value.descricao,
-      responsavel:this.formBacklog.value.responsavel,
-      integrantes:this.formBacklog.value.integrantes.split(','),
-      dataTermino:this.formBacklog.value.dataTermino?._d?this.formBacklog.value.dataTermino._d.getTime():this.formBacklog.value.dataTermino,
-      status:this.formBacklog.value.status,
-      dificuldade:this.formBacklog.value.dificuldade,
-      prazo:this.formBacklog.getRawValue().prazo, 
+      titulo:this.formArtefato.value.titulo,
+      descricao:this.formArtefato.value.descricao,
+      responsavel:this.formArtefato.value.responsavel,
+      integrantes:this.formArtefato.value.integrantes.split(','),
+      dataTermino:this.formArtefato.value.dataTermino?._d?this.formArtefato.value.dataTermino._d.getTime():this.formArtefato.value.dataTermino,
+      status:this.formArtefato.value.status,
+      dificuldade:this.formArtefato.value.dificuldade,
+      prazo:this.formArtefato.getRawValue().prazo, 
       sprintKey:this.data?.projeto?.sprintKey?this.data?.projeto?.sprintKey:this.data.key,
+      backlogKey:this.formArtefato.value.backlog,
       dataCriacao:this.dataCriacao.getTime()
     };
     if(this.data?.projeto?.key != null){
-      this.shared.updateBacklog(this.data?.projeto.key,backlogEnvio)
+      this.shared.updateArtefato(this.data?.projeto.key,backlogEnvio)
       this.shared.subFilterBacklog.next(null);
     }
     else{
-      this.shared.createBacklog(backlogEnvio);
+      this.shared.createArtefato(backlogEnvio);
     }
     this.dialog.close()
   }

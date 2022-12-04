@@ -15,9 +15,9 @@
             <mat-label>Selecione uma sprint</mat-label>
             <mat-select formControlName="sprint" (closed)="filterObj()">
                 <mat-option [value]="null">
-                    Selecione um projeto
+                    Selecione uma Sprint
                 </mat-option>
-                <mat-option *ngFor="let sprintFiltro of sprints" [value]="sprintFiltro.id">
+                <mat-option *ngFor="let sprintFiltro of sprints" [value]="sprintFiltro.key">
                     {{sprintFiltro.nome}}
                 </mat-option>
             </mat-select>

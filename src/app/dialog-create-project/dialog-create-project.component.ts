@@ -43,12 +43,14 @@ export class DialogCreateProjectComponent implements OnInit {
     prazo:this.fb.control({value:null,disabled:true})
   });
   dataCriacao:Date=new Date();
+  edicao:boolean = false;
 
 
   constructor(private fb:FormBuilder,@Inject(MAT_DIALOG_DATA) private data:any,private shared:SharedDataService,private dialog:MatDialogRef<DialogCreateProjectComponent>) { }
 
   ngOnInit(): void {
     if(this.data?.projeto != null){
+      this.edicao = true;
       this.dataCriacao = new Date(this.data.projeto.dataCriacao);
       this.formProject.patchValue({
         nome:this.data.projeto.nome,
@@ -57,8 +59,7 @@ export class DialogCreateProjectComponent implements OnInit {
         integrantes:this.data.projeto.integrantes.toString(),
         dataTermino:new Date(this.data.projeto.dataTermino),
         prazo:this.data.projeto?.prazo?this.data.projeto.prazo:Math.floor(((this.data.projeto.dataTermino.valueOf() + 86400000) - this.dataCriacao.valueOf())/ 86400000),
-        id:this.data.projeto.id
-      })
+      });
     }
   }
 
@@ -69,7 +70,6 @@ export class DialogCreateProjectComponent implements OnInit {
   }
 
   print(){
-    console.log(this.formProject.value.dataTermino._d)
     const projetoEnvio:projeto = {
       nome:this.formProject.value.nome,
       descricao:this.formProject.value.descricao,

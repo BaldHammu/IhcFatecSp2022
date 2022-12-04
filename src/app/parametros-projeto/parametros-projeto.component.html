@@ -14,8 +14,8 @@
                 <mat-card *ngFor="let projeto of projetos" class="mb-3">
                     <div fxLayout="row" fxLayoutGap="5px">
                         <div fxLayout="column">
-                            <h4>{{projeto?.nome}}</h4>
-                            <div fxLayout="row" fxLayoutAlign="space-between">
+                            <h4><b>Titulo do Projeto:</b> {{projeto?.nome}}</h4>
+                            <div fxLayout="row" fxLayoutAlign="flex-start">
                                 <button mat-icon-button (click)="edit(projeto)">
                                     <mat-icon>create</mat-icon>
                                 </button>
@@ -25,7 +25,8 @@
                             </div>
                         </div>
                         <div class="descricao">
-                            <pre>{{projeto?.descricao}}</pre>
+                            <h4><b>Descrição do Projeto</b></h4>
+                            <textarea>{{projeto?.descricao}}</textarea>
                         </div>
                     </div>
                 </mat-card>
@@ -63,15 +64,17 @@
                     <div fxLayout="row" fxLayoutGap="5px">
                         <div fxLayout="column">
                             <h4>{{sprint?.nome}}</h4>
-
-                            <button mat-icon-button (click)="editSprint(sprint)">
-                                <mat-icon>create</mat-icon>
-                            </button>
-                            <button mat-icon-button color="warn" (click)="deletarSprint(sprint)">
-                                <mat-icon>close</mat-icon>
-                            </button>
+                            
+                            <div fxLayout="row" fxLayoutAlign="space-between">
+                                <button mat-icon-button (click)="editSprint(sprint)">
+                                    <mat-icon>create</mat-icon>
+                                </button>
+                                <button mat-icon-button color="warn" (click)="deletarSprint(sprint)">
+                                    <mat-icon>close</mat-icon>
+                                </button>
+                            </div>
                         </div>
-                        </div>
+                    </div>
                 </mat-card>
             </div>
 

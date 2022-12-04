@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
 registerUser(){
   if(this.f.senha===this.f.confirmarSenha){
     this.auth.createUserWithEmailAndPassword(this.f.email,this.f.senha)
-    .then((credentials)=>console.log(credentials))
+    .then((credentials)=>this.router.navigate(['/login']))
     .catch((err)=>console.log(err))
 
   }

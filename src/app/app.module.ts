@@ -18,6 +18,7 @@ import { DialogCreateProjectComponent } from './dialog-create-project/dialog-cre
 import { DialogCriarBacklogComponent } from './dialog-criar-backlog/dialog-criar-backlog.component';
 import { DialogEditarSprintComponent } from './dialog-editar-sprint/dialog-editar-sprint.component';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { DialogCriarBacklogArtefato } from './dialog-criar-artefato/dialog-criar-artefato.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     ParametrosProjetoComponent,
     DialogCreateProjectComponent,
     DialogCriarBacklogComponent,
-    DialogEditarSprintComponent
+    DialogEditarSprintComponent,
+    DialogCriarBacklogArtefato
   ],
   imports: [
     BrowserModule,

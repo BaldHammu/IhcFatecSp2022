@@ -1,5 +1,5 @@
 <mat-toolbar color="primary" class="mb-2">
-    <button mat-icon-button class="example-icon" (click)="openMenu()">
+    <button mat-icon-button class="example-icon" (click)="openMenu()" *ngIf="!showMenu">
       <mat-icon>menu</mat-icon>
     </button>
     <span>Scrum Assist</span>

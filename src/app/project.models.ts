@@ -17,3 +17,33 @@ export interface sprint{
     dataTermino?:number | Date,
     prazo?:number,
 }
+
+export interface backlog{
+    key?:string|null;    
+    titulo?:string,
+    descricao?:string,
+    responsavel?:string,
+    integrantes?:string,
+    sprintKey?:string,
+    backlogKey?:string,
+    dificuldade?:string,
+    dataTermino?:number | Date,
+    dataCriacao?:number | Date,
+    prazo?:number,
+    status?:string,
+    artefatos?:artefato[]
+}
+
+export interface artefato{
+    key?:string|null;    
+    titulo?:string,
+    descricao?:string,
+    responsavel?:string,
+    integrantes?:string,
+    sprintKey?:string,
+    dificuldade?:string,
+    dataTermino?:number | Date,
+    dataCriacao?:number | Date,
+    prazo?:number,
+    status?:string
+}

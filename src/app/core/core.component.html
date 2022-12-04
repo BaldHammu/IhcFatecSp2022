@@ -1,5 +1,5 @@
-<app-header (menu)="openDrawer()"></app-header>
-<mat-drawer-container class="example-container">
+<app-header (menu)="openDrawer()" [showMenu]="activedRoute"></app-header>
+<mat-drawer-container class="example-container" >
     <mat-drawer mode="over" [opened]="openClose">
         <li fxLayout="column">
             <a (click)="clickLink('backlog')"><mat-icon>layers</mat-icon>Backlog</a>
@@ -10,10 +10,10 @@
             <mat-form-field>
                 <mat-label>Selecione um projeto</mat-label>
                 <mat-select formControlName="projeto" (closed)="filterObj()">
-                    <mat-option [value]="null">
+                    <mat-option [value]="''">
                         Selecione um projeto
                     </mat-option>
-                    <mat-option *ngFor="let projetoFiltro of projetos" [value]="projetoFiltro.id">
+                    <mat-option *ngFor="let projetoFiltro of projetos" [value]="projetoFiltro.key">
                         {{projetoFiltro.nome}}
                     </mat-option>
                 </mat-select>

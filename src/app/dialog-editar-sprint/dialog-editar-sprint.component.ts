@@ -17,6 +17,7 @@ export class DialogEditarSprintComponent implements OnInit {
     prazo: this.fb.control({ value: null, disabled: true }),
   });
   dataCriacao: Date = new Date();
+  edicao = false;
 
 
   constructor(private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) private data: any, private shared: SharedDataService, private dialog: MatDialogRef<DialogEditarSprintComponent>) { }
@@ -24,6 +25,7 @@ export class DialogEditarSprintComponent implements OnInit {
   ngOnInit(): void {
 
     if (this.data?.sprint != null) {
+      this.edicao = true;
       this.dataCriacao = new Date(this.data.sprint.dataCriacao);
       this.formProject.patchValue({
         nome: this.data.sprint.nome,

@@ -7,7 +7,7 @@
             <mat-card class="title">
                 <h3>{{sprint.titulo}}</h3>
             </mat-card>
-            <mat-card class="backlogItem" (click)="openDialog()" *ngFor="let artefato of sprint.artefato">
+            <mat-card class="backlogItem" (click)="openDialog(artefato)" *ngFor="let artefato of sprint.artefatos">
                 <h4>{{artefato.titulo}}</h4>
                 <div class="dificuldade" fxLayout="column" fxLayoutAlign="center">
                     <p>
