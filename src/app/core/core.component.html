@@ -1,24 +1,37 @@
 <app-header (menu)="openDrawer()" [showMenu]="activedRoute"></app-header>
-<mat-drawer-container class="example-container" >
+<mat-drawer-container class="example-container">
     <mat-drawer mode="over" [opened]="openClose">
-        <li fxLayout="column">
-            <a (click)="clickLink('backlog')"><mat-icon>layers</mat-icon>Backlog</a>
-            <a (click)="clickLink('backlog-sprint')"><mat-icon>layers</mat-icon>Backlog de Sprint</a>
-            <a (click)="clickLink('parametros')"><mat-icon>create</mat-icon>Parametros</a>
-        </li>
-        <form [formGroup]="formCore">
-            <mat-form-field>
-                <mat-label>Selecione um projeto</mat-label>
-                <mat-select formControlName="projeto" (closed)="filterObj()">
-                    <mat-option [value]="''">
-                        Selecione um projeto
-                    </mat-option>
-                    <mat-option *ngFor="let projetoFiltro of projetos" [value]="projetoFiltro.key">
-                        {{projetoFiltro.nome}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-        </form>
+        <div fxLayout="column" fxLayoutAlign="space-between">
+            <div>
+                <li fxLayout="column">
+                    <a (click)="clickLink('backlog')">
+                        <mat-icon>layers</mat-icon>Backlog
+                    </a>
+                    <a (click)="clickLink('backlog-sprint')">
+                        <mat-icon>layers</mat-icon>Backlog de Artefatos
+                    </a>
+                    <a (click)="clickLink('parametros')">
+                        <mat-icon>create</mat-icon>Parametros de Projeto
+                    </a>
+                </li>
+                <form [formGroup]="formCore">
+                    <mat-form-field>
+                        <mat-label>Selecione um projeto</mat-label>
+                        <mat-select formControlName="projeto" (closed)="filterObj()">
+                            <mat-option [value]="''">
+                                Selecione um projeto
+                            </mat-option>
+                            <mat-option *ngFor="let projetoFiltro of projetos" [value]="projetoFiltro.key">
+                                {{projetoFiltro.nome}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </form>
+            </div>
+            <button mat-raised-button color="primary" (click)="clickLink('login')">
+                <mat-icon>meeting_room</mat-icon>  Logout
+            </button>
+        </div>
     </mat-drawer>
     <mat-drawer-content>
         <main>
