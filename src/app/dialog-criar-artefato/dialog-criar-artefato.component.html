@@ -52,10 +52,10 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field>
-                <mat-label>Selecione uma sprint</mat-label>
+                <mat-label>Selecione uma task</mat-label>
                 <mat-select formControlName="backlog">
                     <mat-option [value]="null">
-                        Selecione uma Sprint
+                        Selecione uma Task
                     </mat-option>
                     <mat-option *ngFor="let backlogFiltro of backlog" [value]="backlogFiltro.key">
                         {{backlogFiltro.titulo}}

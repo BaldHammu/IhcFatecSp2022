@@ -43,6 +43,7 @@ export class CoreComponent implements OnInit {
   }
   clickLink(link:string){
     this.Router.navigate([link]);
+    this.openClose = !this.openClose;
   }
   filterObj(){
     this.shared.projetoAtual = this.formCore.value.projeto
