@@ -1,12 +1,9 @@
 <h2 mat-dialog-title>{{!edicao?'Criar novo':'Editar'}} artefato</h2>
 <form [formGroup]="formArtefato">
     <mat-card fxLayout="row" class="maximum backlog mb-3" fxLayoutGap="10px">
-        <div class="title">
-            <h3>Detalhes</h3>
-        </div>
         <mat-card class="backlogItem">
             <mat-form-field appearance="fill">
-                <mat-label>Nome</mat-label>
+                <mat-label>Título</mat-label>
                 <input matInput formControlName="titulo">
             </mat-form-field>
             <mat-form-field appearance="fill">
